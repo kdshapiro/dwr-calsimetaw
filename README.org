@@ -51,11 +51,14 @@ while _prism-provisional_ retrieves provisonal data.
 Either way the process is the same, we use the prism/daily.mk script
 to fetch that data.  You need to be executing in grass for this to
 work.
-
+#Before you run this code, connect to server and change directory cd daw-calsimetaw, then run the code in this directory
 #+BEGIN_SRC bash
-alias water-dc='CURRENT_UID=$(id -u):$(id -g) docker-compose -p water -f ~/dwr-calsimetaw/water.yml'
+alias water-dc='CURRENT_UID=$(id -u):$(id -g) docker-compose -p water -f ~/dwr-calsimetaw/eto.yml'
+#creates docker called "water-dc"
+#once you create the docker you can use commnd water-dc ps to list the dockers and show state
+#command water-dc up -d to turn dockers on and run in background?
 water-dc exec grass grass /data/prism-stable/quinn
-
+#starts the docker- it starts running grass
 #+END_SRC
 
 #+BEGIN_SRC bash
