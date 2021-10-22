@@ -69,6 +69,7 @@ for d in `seq 0 364`; do
   make -f daily.mk tmin tmax ppt;
 done
 #+END_SRC
+#once you run this code, it will actually pull the PRISM data from the prism website and unzips the files
 
 for d in `seq 0 364`; do m=`date --date="$start + $d days" +%Y%m%d`; g.mapset -c $m; make -n -f daily.mk tmin tmax ppt; done
 
