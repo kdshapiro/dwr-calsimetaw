@@ -70,6 +70,8 @@ for d in `seq 0 364`; do
 done
 #+END_SRC
 #once you run this code, it will actually pull the PRISM data from the prism website and unzips the files
+#if you already ran this once, say, took the first 30 days, and now want to got back and get the next 30 days, you need to re-create the map set that the water-dc command creates
+#run g.mappset location=prism-stable mapset=dogdays to create another mapset
 
 for d in `seq 0 364`; do m=`date --date="$start + $d days" +%Y%m%d`; g.mapset -c $m; make -n -f daily.mk tmin tmax ppt; done
 
@@ -104,6 +106,9 @@ for d in `seq $d 364`; do
  make -f /dwr-calsimetaw/2003-present/daily.mk
 done
 ```
+#g.list type=rast mapset=20210101
+#will list the files in the mapset
+#r.info ETO@20210101 decribes the data
 
 *** Create the required input files
 
